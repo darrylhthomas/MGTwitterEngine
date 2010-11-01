@@ -133,6 +133,8 @@
 - (NSString *)getUserInformationForEmail:(NSString *)email; // users/show
 
 
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username
+
 // Direct Message methods
 
 - (NSString *)getDirectMessagesSinceID:(MGTwitterEngineID)sinceID startingAtPage:(int)pageNum; // direct_messages
