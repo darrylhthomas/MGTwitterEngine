@@ -133,7 +133,7 @@
 - (NSString *)getUserInformationForEmail:(NSString *)email; // users/show
 
 
-- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username
+- (NSString *)getStatusesFromList:(NSString *)listName onAccount:(NSString *)username;
 
 // Direct Message methods
 
