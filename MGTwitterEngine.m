@@ -1118,31 +1118,38 @@
 
 - (NSString *)getHomeTimelineSinceID:(MGTwitterEngineID)sinceID startingAtPage:(int)page count:(int)count; // statuses/home_timeline
 {
-  return [self getHomeTimelineSinceID:sinceID withMaximumID:0 startingAtPage:page count:count];
+	return [self getHomeTimelineSinceID:sinceID withMaximumID:0 startingAtPage:page count:count addEnteties:YES];
 }
 
 - (NSString *)getHomeTimelineSinceID:(MGTwitterEngineID)sinceID withMaximumID:(MGTwitterEngineID)maxID startingAtPage:(int)page count:(int)count; // statuses/home_timeline
 {
-  NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
-  
-  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
-  if (sinceID > 0) {
-    [params setObject:[NSString stringWithFormat:@"%llu", sinceID] forKey:@"since_id"];
-  }
-  if (maxID > 0) {
-    [params setObject:[NSString stringWithFormat:@"%llu", maxID] forKey:@"max_id"];
-  }
-  if (page > 0) {
-    [params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
-  }
-  if (count > 0) {
-    [params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
-  }
-  
-  return [self _sendRequestWithMethod:nil path:path queryParameters:params body:nil 
-                          requestType:MGTwitterHomeTimelineRequest 
-                         responseType:MGTwitterStatuses];
-  
+	return [self getHomeTimelineSinceID:sinceID withMaximumID:maxID startingAtPage:page count:count addEnteties:YES];
+}
+
+- (NSString *)getHomeTimelineSinceID:(MGTwitterEngineID)sinceID withMaximumID:(MGTwitterEngineID)maxID startingAtPage:(int)page count:(int)count addEnteties:(BOOL)entities
+{
+	NSString *path = [NSString stringWithFormat:@"statuses/home_timeline.%@", API_FORMAT];
+	
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+	if (sinceID > 0) {
+		[params setObject:[NSString stringWithFormat:@"%llu", sinceID] forKey:@"since_id"];
+	}
+	if (maxID > 0) {
+		[params setObject:[NSString stringWithFormat:@"%llu", maxID] forKey:@"max_id"];
+	}
+	if (page > 0) {
+		[params setObject:[NSString stringWithFormat:@"%d", page] forKey:@"page"];
+	}
+	if (count > 0) {
+		[params setObject:[NSString stringWithFormat:@"%d", count] forKey:@"count"];
+	}
+	if (entities == YES) {
+		[params setObject:@"true" forKey:@"include_entities"];
+	}
+	
+	return [self _sendRequestWithMethod:nil path:path queryParameters:params body:nil 
+							requestType:MGTwitterHomeTimelineRequest 
+						   responseType:MGTwitterStatuses];
 }
 
 #pragma mark -
