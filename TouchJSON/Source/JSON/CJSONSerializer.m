@@ -169,7 +169,8 @@ char *OUT = theOutputStart;
 *OUT++ = '"';
 
 const char *theUTF8String = [inString UTF8String];
-for (const char *IN = theUTF8String; *IN != '\0'; ++IN)
+	const char *IN;
+for (IN = theUTF8String; *IN != '\0'; ++IN)
     {
     switch (*IN)
         {

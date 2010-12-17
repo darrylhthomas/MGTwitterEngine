@@ -80,7 +80,8 @@ else
 - (NSUInteger)lineOfScanLocation
 {
 NSUInteger theLine = 0;
-for (const u_int8_t *C = start; C < current; ++C)
+const u_int8_t *C;
+for (C = start; C < current; ++C)
     {
     // TODO: JIW What about MS-DOS line endings you bastard! (Also other unicode line endings)
     if (*C == '\n' || *C == '\r')
@@ -95,7 +96,8 @@ return(theLine);
 {
 NSUInteger theLine = 0;
 const u_int8_t *theLineStart = start;
-for (const u_int8_t *C = start; C < current; ++C)
+	const u_int8_t *C;	
+for (C = start; C < current; ++C)
     {
     if (*C == '\n' || *C == '\r')
         {
