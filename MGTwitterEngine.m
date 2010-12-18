@@ -1000,7 +1000,7 @@
     if (NO) {
         // Display headers for debugging.
         NSHTTPURLResponse *respDebug = (NSHTTPURLResponse *)response;
-        NSLog(@"MGTwitterEngine: (%d) [%@]:\r%@", 
+        NSLog(@"MGTwitterEngine: (%ld) [%@]:\r%@", 
               [resp statusCode], 
               [NSHTTPURLResponse localizedStringForStatusCode:[respDebug statusCode]], 
               [respDebug allHeaderFields]);
@@ -1050,7 +1050,7 @@
         if (NO) {
             // Dump data as string for debugging.
             NSString *dataString = [NSString stringWithUTF8String:[receivedData bytes]];
-            NSLog(@"MGTwitterEngine: Succeeded! Received %d bytes of data:\r\r%@", [receivedData length], dataString);
+            NSLog(@"MGTwitterEngine: Succeeded! Received %ld bytes of data:\r\r%@", [receivedData length], dataString);
         }
         
         if (NO) {
