@@ -118,6 +118,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* MGTwitterEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTwitterEngine_Prefix.pch; sourceTree = "<group>"; };
+		448AFF2912DB6F3B00428E64 /* TwitterCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterCredentials.h; sourceTree = "<group>"; };
 		44F7517B0E47DBD600858A1B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = /usr/lib/libxml2.dylib; sourceTree = "<absolute>"; };
 		44F751880E47DDD500858A1B /* MGTwitterMiscLibXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGTwitterMiscLibXMLParser.h; path = parsers/MGTwitterMiscLibXMLParser.h; sourceTree = "<group>"; };
 		44F751890E47DDD500858A1B /* MGTwitterUsersLibXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGTwitterUsersLibXMLParser.m; path = parsers/MGTwitterUsersLibXMLParser.m; sourceTree = "<group>"; };
@@ -426,6 +427,7 @@
 			children = (
 				C9811E5B0D5F696200720D77 /* AppController.h */,
 				C9811E5C0D5F696200720D77 /* AppController.m */,
+				448AFF2912DB6F3B00428E64 /* TwitterCredentials.h */,
 			);
 			name = Demo;
 			sourceTree = "<group>";

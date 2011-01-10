@@ -7,23 +7,25 @@
 //
 
 #import "AppController.h"
+#import "TwitterCredentials.h"
 
 @implementation AppController
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Put your Twitter username and password here:
-    NSString *username = nil;
-    NSString *password = nil;
+    // Put your Twitter credentials in TwitterCredentials.h
 	
-	NSString *consumerKey = nil;
-	NSString *consumerSecret = nil;
+    NSString *username = TWITTER_USERNAME;
+    NSString *password = TWITTER_PASSWORD;
+	
+	NSString *consumerKey = TWITTER_CONSUMER_KEY;
+	NSString *consumerSecret = TWITTER_CONSUMER_SECRET;
 	
     // Most API calls require a name and password to be set...
-    if (! username || ! password || !consumerKey || !consumerSecret) {
-        NSLog(@"You forgot to specify your username/password/key/secret in AppController.m, things might not work!");
-		NSLog(@"And if things are mysteriously working without the username/password, it's because NSURLConnection is using a session cookie from another connection.");
+    if ([username isEqualToString: @""] || [password isEqualToString: @""] || [consumerKey isEqualToString: @""] || [consumerSecret isEqualToString: @""]) {
+        NSLog(@"You forgot to specify your username/password/key/secret in TwitterCredentials.h. Things might not work!");
+		NSLog(@"...And if things are mysteriously working without the username/password, it's because NSURLConnection is using a session cookie from another connection.");
     }
     
     // Create a TwitterEngine and set our login details.

@@ -6,3 +6,5 @@ xcuserdata
 build
 yajl
 OAuthConsumer
+TwitterCredentials.h
+
