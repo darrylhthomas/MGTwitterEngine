@@ -10,7 +10,8 @@
 // Put your twitter credentials in this file for use by the demo
 // AppController.
 
-// Changes to this file will not be committed (this file is in .gitignore)
+// To ensure changes to this file will not be committed, be sure to run:
+// git update-index --assume-unchanged TwitterCredentials.h
 
 // Hard-coding credentials elsewhere in the project is inadvisable, as you
 // may inadvertantly disclose this information with a careless commit.
