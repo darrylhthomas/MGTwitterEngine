@@ -4,7 +4,7 @@ This fork has splintered from the original in that I now manually including [OAu
 
 Via the [subtree merge pattern](http://help.github.com/subtree-merge/ "Git Subtree Merge Pattern") I am including for you:
  
-* My own [OAuthConsumer](http://github.com/ctshryock/oauthconsumer)
+* My own fork of [OAuthConsumer](http://github.com/ctshryock/oauthconsumer)
 * [TouchJSON](http://github.com/schwa/TouchJSON) for parsing
                                                                       
 Because these are handled with the subtree pattern, new clones don't have to go find the missing files.  It should "just compile".  A new developer can input their consumer secret/key and go!
