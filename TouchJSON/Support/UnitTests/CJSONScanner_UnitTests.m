@@ -85,7 +85,7 @@ STAssertTrue([theObject isEqual:[NSNull null]], @"Result of scan didn't match ex
 id theObject = NULL;
 BOOL theResult = Scan(@"3.14", &theObject, NULL);
 STAssertTrue(theResult, @"Scan return failure.");
-STAssertTrue([theObject doubleValue] == 3.14, @"Result of scan didn't match expectations.");
+STAssertEqualsWithAccuracy([theObject doubleValue], 3.14, 0.001, @"Result of scan didn't match expectations.");
 }
 
 - (void)testEngineeringNumber
@@ -94,6 +94,38 @@ id theObject = NULL;
 BOOL theResult = Scan(@"3.14e4", &theObject, NULL);
 STAssertTrue(theResult, @"Scan return failure.");
 STAssertTrue([theObject doubleValue] == 3.14e4, @"Result of scan didn't match expectations.");
+}
+
+- (void)testEngineeringNumber2
+{
+id theObject = NULL;
+BOOL theResult = Scan(@"-3.433021e+07", &theObject, NULL);
+STAssertTrue(theResult, @"Scan return failure.");
+STAssertTrue([theObject doubleValue] == -3.433021e+07, @"Result of scan didn't match expectations.");
+}
+
+- (void)testNegativeNumber
+{
+id theObject = NULL;
+BOOL theResult = Scan(@"-1", &theObject, NULL);
+STAssertTrue(theResult, @"Scan return failure.");
+STAssertTrue([theObject doubleValue] == -1, @"Result of scan didn't match expectations.");
+}
+
+- (void)testLargeNumber
+{
+id theObject = NULL;
+BOOL theResult = Scan(@"14399073641566209", &theObject, NULL);
+STAssertTrue(theResult, @"Scan return failure.");
+STAssertTrue([theObject unsignedLongLongValue] == 14399073641566209, @"Result of scan didn't match expectations.");
+}
+
+- (void)testLargeNegativeNumber
+{
+id theObject = NULL;
+BOOL theResult = Scan(@"-14399073641566209", &theObject, NULL);
+STAssertTrue(theResult, @"Scan return failure.");
+STAssertTrue([theObject longLongValue] == -14399073641566209, @"Result of scan didn't match expectations.");
 }
 
 #pragma mark -
