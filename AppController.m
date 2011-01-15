@@ -22,18 +22,31 @@
 	NSString *consumerKey = TWITTER_CONSUMER_KEY;
 	NSString *consumerSecret = TWITTER_CONSUMER_SECRET;
 	
-    // Most API calls require a name and password to be set...
-    if ([username isEqualToString: @""] || [password isEqualToString: @""] || [consumerKey isEqualToString: @""] || [consumerSecret isEqualToString: @""]) {
-        NSLog(@"You forgot to specify your username/password/key/secret in TwitterCredentials.h. Things might not work!");
-		NSLog(@"...And if things are mysteriously working without the username/password, it's because NSURLConnection is using a session cookie from another connection.");
-    }
-    
+	NSString *oAuthTokenKey = TWITTER_OAUTH_TOKEN;
+	NSString *oAuthTokenSecret = TWITTER_OAUTH_TOKEN_SECRET;
+	
+
     // Create a TwitterEngine and set our login details.
     twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 	[twitterEngine setUsesSecureConnection:NO];
 	[twitterEngine setConsumerKey:consumerKey secret:consumerSecret];
-	 
-	[twitterEngine getXAuthAccessTokenForUsername:username password:password];
+
+	if ((![oAuthTokenKey isEqualToString: @""]) && (![oAuthTokenKey isEqualToString: @""])) {
+		// Use hard-coded token (typically for apps that lack xAuth
+		// privileges)
+		
+		token = [[OAToken alloc] initWithKey: oAuthTokenKey secret: oAuthTokenSecret];
+		[self runTests];
+	} else {
+		// Attempt xAuth
+		
+		if ([username isEqualToString: @""] || [password isEqualToString: @""] || [consumerKey isEqualToString: @""] || [consumerSecret isEqualToString: @""]) {
+			NSLog(@"You forgot to specify your username/password/key/secret in TwitterCredentials.h. Things might not work!");
+			NSLog(@"...And if things are mysteriously working without the username/password, it's because NSURLConnection is using a session cookie from another connection.");
+		}
+		
+		[twitterEngine getXAuthAccessTokenForUsername:username password:password];
+	}
 }
 
 -(void)runTests{

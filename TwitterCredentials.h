@@ -26,3 +26,14 @@
 
 #define TWITTER_CONSUMER_KEY @""
 #define TWITTER_CONSUMER_SECRET @""
+
+// If you have not received xAuth privileges for your app, you can
+// test with your personal access token.
+
+// To obtain this token, select your app from the "Your apps" list
+// (http://dev.twitter.com/apps) by selecting the app and then clicking
+// on the "My Access Token" link.
+// If you want to use xAuth, you must leave these defined as empty
+// strings.
+#define TWITTER_OAUTH_TOKEN @""
+#define TWITTER_OAUTH_TOKEN_SECRET @""
