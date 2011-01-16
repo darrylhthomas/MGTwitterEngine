@@ -1,3 +1,21 @@
+###SPECIAL NOTE ABOUT DARRYLHTHOMAS/MGTWITTERENGINE
+
+
+This fork is based on [ctshryock/MGTwitterEngine](http://github.com/ctshryock/MGTwitterEngine).  The special note from ctshryock below applies to this fork.
+
+This fork also cherry-picks commits from other forks which may not be included in the ctshryock fork.
+
+This fork aims to make getting started testing with MGTwitterEngine even easier by removing the need to modify the demo app's AppController.m, opting instead to use a dedicated header file for Twitter credentials: TwitterCredentials.h.
+
+Additionally, this fork's AppController allows for the use of a hard-coded Twitter API OAuth token/secret, which can also be specified in TwitterCredentials.h.  This allows developers to begin testing with MGTwitterEngine prior to having recieved [xAuth privileges from Twitter](http://dev.twitter.com/pages/xauth).
+
+Once a developer has registered an application with Twitter, the developer can send an email to [Twitter API support](mailto:api@twitter.com) requesting xAuth privileges.  Before granting xAuth privileges, however, Twitter will most likely request screenshots of the working application.
+
+This presents a bit of a chicken-and-egg problem.  To help alleviate this, Twitter allows the developer to access an OAuth token/secret which can be used for testing.  Changes to the AppController in this fork allow the developer to use this token/secret in lieu of xAuth during the early stages of development.
+
+**NOTE:** Never use your personal OAuth token for a production Twitter client.  This token is for your account only and should only be used to test prior to having xAuth privileges (or implementing [Out-Of-Band/PIN authentication](http://dev.twitter.com/pages/auth_overview#oob)).
+
+
 ###SPECIAL NOTE ABOUT CTSHRYOCK/MGTWITTERENGINE
                                                                                                               
 This fork has splintered from the original in that I now manually including [OAuthConsumer](http://github.com/ctshryock/oauthconsumer) and [TouchJSON](http://github.com/schwa/TouchJSON).  The goal here is for new people to be able to clone the project, fill in a minimal amount of info in AppController.m, and get a running application.  [MattGemmell/MGTwitterEngine](https://github.com/mattgemmell/MGTwitterEngine) has a handful of parser options, which causes confusion because which parser to use was left to the developer.  As such, only libxml is available "out of the box", the other options require pulling in outside code.  Furthermore, the xCode project referenced these files, which didn't exist in a fresh clone.  Hence, a fresh clone wouldn't even compile.  This fork is trying to alleviate those pains   
